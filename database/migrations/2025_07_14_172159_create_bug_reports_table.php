@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId("researcher_id")->constrained("researchers")->cascadeOnDelete();
             $table->string("title");
             $table->text("description");
-            // wartosci raczej niezmienne wiec enum w bazie zamiast kodzie
+            // wartosci raczej niezmienne wiec enum w bazie
             $table->enum("severity", ["low", "medium", "high"])->default("low");
             $table->string("status")->default("open"); // open, in_progress, closed
             $table->timestamps();

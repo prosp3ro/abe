@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Api;
 
 use App\Enums\BugSeverityEnum;
+use App\Enums\BugStatusEnum;
 use App\Models\BugBounty;
 use App\Models\Researcher;
 use Illuminate\Foundation\Http\FormRequest;
@@ -30,8 +31,9 @@ final class StoreBugReportRequest extends FormRequest
             "researcher_id" => ["required", "exists:" . Researcher::class . ",id"],
             "title" => ["required", "string", "max:255"],
             "description" => ["required", "string"],
-            // nowa funkcjonalnosc php 8.1
+            // php 8.1+
             "severity" => ["required", new Enum(BugSeverityEnum::class)],
+            "status" => ["required", new Enum(BugStatusEnum::class)],
         ];
     }
 }

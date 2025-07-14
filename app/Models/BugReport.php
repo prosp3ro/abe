@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\BugSeverity;
 use App\Enums\BugSeverityEnum;
+use App\Enums\BugStatusEnum;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -22,6 +23,7 @@ final class BugReport extends Model
 
     protected $casts = [
         "severity" => BugSeverityEnum::class,
+        "status" => BugStatusEnum::class
     ];
 
     /**
