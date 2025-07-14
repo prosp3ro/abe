@@ -18,7 +18,7 @@ Prosty system raportowania błędów inspirowany HackerOne, zbudowany jako REST 
 - Docker + Docker Compose (Sail)
 - Nginx
 
-## 1. Konfiguracja środowiska
+## Konfiguracja środowiska
 
 ```bash
 git clone https://github.com/prosp3ro/abe bug-bounty-api
@@ -28,23 +28,18 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-Można zmienić porty w .env:
+Można zmienić porty `APP_PORT` i `FORWARD_DB_PORT` w .env.
 
-APP_PORT
-FORWARD_DB_PORT
-
-2. Uruchomienie aplikacji
+## Uruchomienie aplikacji
 
 ```bash
 composer install
+
 sail up -d
 # albo
 docker-compose up -d --build
-```
 
-3. Instalacja zależności i migracje
-
-```bash
+# migracje
 sail artisan migrate
 ```
 
