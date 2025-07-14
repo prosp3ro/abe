@@ -19,8 +19,8 @@ final class UpdateBugReportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "project_id" => ["sometimes", "exists:" . (new BugBounty)->getTable() . ",id"],
-            "researcher_id" => ["sometimes", "exists:" . (new Researcher)->getTable() . ",id"],
+            "project_id" => ["sometimes", "exists:" . BugBounty::class . ",id"],
+            "researcher_id" => ["sometimes", "exists:" . Researcher::class . ",id"],
             "title" => ["sometimes", "string", "max:255"],
             "description" => ["sometimes", "string"],
             // php 8.1+
